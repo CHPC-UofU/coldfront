@@ -19,3 +19,7 @@ coldfront.db
 .vscode
 db.json
 .env
+
+# IDE Metadata
+.idea/
+.vscode/
