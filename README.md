@@ -29,6 +29,22 @@ _Submit a PR to add your plugin to the list above._
 
 For more information on installing and using ColdFront see our [documentation here](https://coldfront.readthedocs.io)
 
+## Evaluate ColdFront using Docker
+
+Apply the following Docker commands to build and run Coldfront on your local machine:
+
+```shell
+docker build -f Dockerfile -t coldfront:latest .
+```
+
+followed by:
+
+```shell
+docker run -it -v ${PWD}:/usr/src/app -p 8000:8000 coldfront:latest
+```
+
+**Note:** Test credentials are described in [Loading the sample test data](https://coldfront.readthedocs.io/en/latest/install/#loading-the-sample-test-data).
+
 ## Contact Information
 If you would like a live demo followed by QA, please contact us at
 ccr-coldfront-admin-list@listserv.buffalo.edu. You can also contact us for
