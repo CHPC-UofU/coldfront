@@ -1,18 +1,32 @@
+# syntax=docker/dockerfile:1
 FROM python:3.6
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
-
-WORKDIR /usr/src/app
-COPY requirements.txt ./
-RUN pip3 install -r requirements.txt
-COPY . .
-
-RUN python3 ./manage.py initial_setup
-RUN python3 ./manage.py load_test_data
-
+# Docker container environmental variables:
 ENV DEBUG=True
 
+# Package installs/updates:
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
+# Prepare entrypoint:
+COPY ./docker-entrypoint.sh ./
+RUN chmod +x ./docker-entrypoint.sh
+
+# Install Python libraries:
+WORKDIR /tmp
+COPY requirements.txt ./
+RUN pip3 install -r requirements.txt && \
+    rm requirements.txt
+
+# Change working directory:
+WORKDIR /usr/src/app
+
+# Ports:
 EXPOSE 8000
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+# Volumes
+VOLUME [ "/usr/src/app" ]
+
+# Run once the container has started:
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
