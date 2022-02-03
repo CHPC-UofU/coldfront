@@ -1,0 +1,18 @@
+
+# IDE Related Items
+/.idea
+/.vscode
+
+# Documentation
+/docs
+
+# Git Related Items
+.git
+.gitattributes
+.github
+.gitignore
+.gitmodules
+
+# Other
+LICENSE
+README.md
