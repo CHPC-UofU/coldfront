@@ -22,8 +22,11 @@ html {
   min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 150px;
+    /* Margin bottom by footer height */
+    margin-bottom: 150px;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: normal;
+    text-rendering: optimizelegibility;
 }
 
 main {
@@ -53,7 +56,7 @@ main {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 150px;
-  background-color: #4582EC;
+  background-color: #333 !important;
   color: #ffffff;
   padding-top: 15px;
 }
@@ -68,7 +71,6 @@ main {
     margin-bottom: 5px;
 }
 
-
 body > main > form > div.alert.alert-block.alert-danger > ul > li {
   list-style: none;
   margin-top: 14px;
@@ -78,6 +80,38 @@ body > main > div > div.card.border-primary > div.card-body > form > div.alert.a
   list-style: none;
   margin-top: 14px;
   
+}
+
+/* UofU logo */
+#uu_logo {
+    width: 140px;
+    height: 38px;
+    margin: 0.5em 0.5em 0.75em 0.5em;
+}
+
+/* Bootstrap branding overrides */
+main a {
+    color: #c00 !important;
+}
+a.btn, a.navbar-brand {
+    color: #fff !important;
+}
+
+.bg-primary, .btn-primary, .dropdown-item:active {
+    background-color: #c00 !important;
+}
+
+.border-primary, .btn-primary {
+    border-color: #c00 !important;
+}
+
+.page-item.active .page-link {
+    background-color: inherit !important;
+    border-color: #c00 !important;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d !important;
 }
 
 /*
